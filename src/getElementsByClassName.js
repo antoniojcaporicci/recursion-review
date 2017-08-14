@@ -4,28 +4,28 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className
-) {
+var getElementsByClassName = function(className) {
   // your code here
  // create an empty array
   var classNameArray = [];
-  
-  //Iterate through the DOM
-  
-  for (var i = 0; i < document.body.childNodes.length; i++) {
-  //  console.log(document.childNodes[i]);
-    if (document.childNodes[i] > 0) {
-      getElementsByClassName(document.childNodes[i]);
-    } else if (document.childNodes[i].classList) {
-      console.log(document.childNodes[i].classList);
-       
-    }   
-  }                            
 
+  var body = document.body;
+  
+  function classNameIterator(element) {
+    if (element.classList && element.classList.contains(className)) {
+      classNameArray.push(element);
+    }  
+
+    for (var i = 0; i < element.childNodes.length; i++) {
+      console.log(element);
+      classNameIterator(element.childNodes[i]);
+    }
+  }
+  
+  classNameIterator(body);
 
   return classNameArray; 
  // return all of the elements matching the classname given
 };
 
 
-getElementsByClassName('cats');
