@@ -17,7 +17,7 @@ var getElementsByClassName = function(className) {
     }  
 
     for (var i = 0; i < element.childNodes.length; i++) {
-      console.log(element);
+      //console.log(element);
       classNameIterator(element.childNodes[i]);
     }
   }
